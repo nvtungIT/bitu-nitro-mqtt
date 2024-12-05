@@ -17,7 +17,6 @@ class HybridMQTT: HybridMQTTSpec {
         
         let mqttClient = CocoaMQTT(clientID: clientID, host: host, port: portUInt16)
         mqttClient.keepAlive = 60
-         mqttClient.delegate = self 
         mqttClient.connect()
         mqtt = mqttClient
     }
