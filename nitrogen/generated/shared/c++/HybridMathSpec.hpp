@@ -17,7 +17,7 @@
 
 
 
-namespace margelo::nitro::math {
+namespace margelo::nitro::mqtt {
 
   using namespace margelo::nitro;
 
@@ -59,4 +59,4 @@ namespace margelo::nitro::math {
       static constexpr auto TAG = "Math";
   };
 
-} // namespace margelo::nitro::math
+} // namespace margelo::nitro::mqtt

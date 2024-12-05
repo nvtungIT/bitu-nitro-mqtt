@@ -1,11 +1,11 @@
 {
-  "cxxNamespace": ["math"],
+  "cxxNamespace": ["mqtt"],
   "ios": {
-    "iosModuleName": "NitroMath"
+    "iosModuleName": "NitroMQTT"
   },
   "android": {
-    "androidNamespace": ["math"],
-    "androidCxxLibName": "NitroMath"
+    "androidNamespace": ["mqtt"],
+    "androidCxxLibName": "NitroMQTT"
   },
   "autolinking": {
     "Math": {

@@ -7,5 +7,5 @@
 
 #include "HybridMathSpecSwift.hpp"
 
-namespace margelo::nitro::math {
-} // namespace margelo::nitro::math
+namespace margelo::nitro::mqtt {
+} // namespace margelo::nitro::mqtt

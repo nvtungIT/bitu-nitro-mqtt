@@ -14,14 +14,14 @@
 
 
 
-namespace margelo::nitro::math {
+namespace margelo::nitro::mqtt {
 
   using namespace facebook;
 
   class JHybridMQTTSpec: public jni::HybridClass<JHybridMQTTSpec, JHybridObject>,
                          public virtual HybridMQTTSpec {
   public:
-    static auto constexpr kJavaDescriptor = "Lcom/margelo/nitro/math/HybridMQTTSpec;";
+    static auto constexpr kJavaDescriptor = "Lcom/margelo/nitro/mqtt/HybridMQTTSpec;";
     static jni::local_ref<jhybriddata> initHybrid(jni::alias_ref<jhybridobject> jThis);
     static void registerNatives();
 
@@ -63,4 +63,4 @@ namespace margelo::nitro::math {
     jni::global_ref<JHybridMQTTSpec::javaobject> _javaPart;
   };
 
-} // namespace margelo::nitro::math
+} // namespace margelo::nitro::mqtt

@@ -43,11 +43,11 @@ public final class HybridMathSpecCxxUnsafe {
  */
 public class HybridMathSpecCxx {
   /**
-   * The Swift <> C++ bridge's namespace (`margelo::nitro::math::bridge::swift`)
-   * from `NitroMath-Swift-Cxx-Bridge.hpp`.
+   * The Swift <> C++ bridge's namespace (`margelo::nitro::mqtt::bridge::swift`)
+   * from `NitroMQTT-Swift-Cxx-Bridge.hpp`.
    * This contains specialized C++ templates, and C++ helper functions that can be accessed from Swift.
    */
-  public typealias bridge = margelo.nitro.math.bridge.swift
+  public typealias bridge = margelo.nitro.mqtt.bridge.swift
 
   /**
    * Holds an instance of the `HybridMathSpec` Swift protocol.

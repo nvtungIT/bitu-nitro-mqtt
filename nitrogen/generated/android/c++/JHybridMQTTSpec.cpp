@@ -11,7 +11,7 @@
 
 #include <string>
 
-namespace margelo::nitro::math {
+namespace margelo::nitro::mqtt {
 
   jni::local_ref<JHybridMQTTSpec::jhybriddata> JHybridMQTTSpec::initHybrid(jni::alias_ref<jhybridobject> jThis) {
     return makeCxxInstance(jThis);
@@ -54,4 +54,4 @@ namespace margelo::nitro::math {
     return static_cast<bool>(__result);
   }
 
-} // namespace margelo::nitro::math
+} // namespace margelo::nitro::mqtt

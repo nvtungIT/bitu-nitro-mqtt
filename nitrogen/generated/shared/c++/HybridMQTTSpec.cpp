@@ -7,7 +7,7 @@
 
 #include "HybridMQTTSpec.hpp"
 
-namespace margelo::nitro::math {
+namespace margelo::nitro::mqtt {
 
   void HybridMQTTSpec::loadHybridMethods() {
     // load base methods/properties
@@ -22,4 +22,4 @@ namespace margelo::nitro::math {
     });
   }
 
-} // namespace margelo::nitro::math
+} // namespace margelo::nitro::mqtt

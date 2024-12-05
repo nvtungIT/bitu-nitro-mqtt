@@ -10,7 +10,7 @@
 #include "HybridMQTTSpec.hpp"
 
 // Forward declaration of `HybridMQTTSpecCxx` to properly resolve imports.
-namespace NitroMath { class HybridMQTTSpecCxx; }
+namespace NitroMQTT { class HybridMQTTSpecCxx; }
 
 
 
@@ -22,9 +22,9 @@ namespace NitroMath { class HybridMQTTSpecCxx; }
 #error NitroModules cannot be found! Are you sure you installed NitroModules properly?
 #endif
 
-#include "NitroMath-Swift-Cxx-Umbrella.hpp"
+#include "NitroMQTT-Swift-Cxx-Umbrella.hpp"
 
-namespace margelo::nitro::math {
+namespace margelo::nitro::mqtt {
 
   /**
    * The C++ part of HybridMQTTSpecCxx.swift.
@@ -39,13 +39,13 @@ namespace margelo::nitro::math {
   class HybridMQTTSpecSwift: public virtual HybridMQTTSpec {
   public:
     // Constructor from a Swift instance
-    explicit HybridMQTTSpecSwift(const NitroMath::HybridMQTTSpecCxx& swiftPart):
+    explicit HybridMQTTSpecSwift(const NitroMQTT::HybridMQTTSpecCxx& swiftPart):
       HybridObject(HybridMQTTSpec::TAG),
       _swiftPart(swiftPart) { }
 
   public:
     // Get the Swift part
-    inline NitroMath::HybridMQTTSpecCxx getSwiftPart() noexcept { return _swiftPart; }
+    inline NitroMQTT::HybridMQTTSpecCxx getSwiftPart() noexcept { return _swiftPart; }
 
   public:
     // Get memory pressure
@@ -77,7 +77,7 @@ namespace margelo::nitro::math {
     }
 
   private:
-    NitroMath::HybridMQTTSpecCxx _swiftPart;
+    NitroMQTT::HybridMQTTSpecCxx _swiftPart;
   };
 
-} // namespace margelo::nitro::math
+} // namespace margelo::nitro::mqtt

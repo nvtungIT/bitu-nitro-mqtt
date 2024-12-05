@@ -17,7 +17,7 @@
 
 #include <string>
 
-namespace margelo::nitro::math {
+namespace margelo::nitro::mqtt {
 
   using namespace margelo::nitro;
 
@@ -63,4 +63,4 @@ namespace margelo::nitro::math {
       static constexpr auto TAG = "MQTT";
   };
 
-} // namespace margelo::nitro::math
+} // namespace margelo::nitro::mqtt
