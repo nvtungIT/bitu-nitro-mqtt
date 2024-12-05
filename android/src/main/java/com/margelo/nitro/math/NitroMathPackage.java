@@ -1,4 +1,4 @@
-package com.margelo.nitro.math;
+package com.margelo.nitro.mqtt;
 
 import android.util.Log;
 
@@ -14,7 +14,7 @@ import com.margelo.nitro.core.HybridObjectRegistry;
 import java.util.HashMap;
 import java.util.function.Supplier;
 
-public class NitroMathPackage extends TurboReactPackage {
+public class NitroMQTTPackage extends TurboReactPackage {
   @Nullable
   @Override
   public NativeModule getModule(String name, ReactApplicationContext reactContext) {
@@ -29,6 +29,6 @@ public class NitroMathPackage extends TurboReactPackage {
   }
 
   static {
-    System.loadLibrary("NitroMath");
+    System.loadLibrary("NitroMQTT");
   }
 }
