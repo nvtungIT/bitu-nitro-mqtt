@@ -55,11 +55,18 @@ abstract class HybridMQTTSpec: HybridObject() {
   
   @DoNotStrip
   @Keep
-  abstract fun disconnect(): Unit
+  abstract fun setOnMessageReceived(callback: (topic: String, message: String) -> Unit): Unit
   
   @DoNotStrip
   @Keep
-  abstract fun isConnected(): Boolean
+  private fun setOnMessageReceived(callback: Func_void_std__string_std__string): Unit {
+    val __result = setOnMessageReceived(callback.toLambda())
+    return __result
+  }
+  
+  @DoNotStrip
+  @Keep
+  abstract fun isConnected(): Promise<ConnectionState>
 
   private external fun initHybrid(): HybridData
 

@@ -12,9 +12,13 @@
 // Forward declaration of `HybridMQTTSpecCxx` to properly resolve imports.
 namespace NitroMQTT { class HybridMQTTSpecCxx; }
 
-
+// Forward declaration of `ConnectionState` to properly resolve imports.
+namespace margelo::nitro::mqtt { enum class ConnectionState; }
 
 #include <string>
+#include <functional>
+#include <NitroModules/Promise.hpp>
+#include "ConnectionState.hpp"
 
 #if __has_include(<NitroModules/HybridContext.hpp>)
 #include <NitroModules/HybridContext.hpp>
@@ -68,10 +72,10 @@ namespace margelo::nitro::mqtt {
     inline void subscribe(const std::string& topic) override {
       _swiftPart.subscribe(topic);
     }
-    inline void disconnect() override {
-      _swiftPart.disconnect();
+    inline void setOnMessageReceived(const std::function<void(const std::string& /* topic */, const std::string& /* message */)>& callback) override {
+      _swiftPart.setOnMessageReceived(callback);
     }
-    inline bool isConnected() override {
+    inline std::shared_ptr<Promise<ConnectionState>> isConnected() override {
       auto __result = _swiftPart.isConnected();
       return __result;
     }

@@ -132,9 +132,14 @@ public class HybridMQTTSpecCxx {
   }
   
   @inline(__always)
-  public func disconnect() -> Void {
+  public func setOnMessageReceived(callback: bridge.Func_void_std__string_std__string) -> Void {
     do {
-      try self.__implementation.disconnect()
+      try self.__implementation.setOnMessageReceived(callback: { () -> ((String, String) -> Void) in
+        let __sharedClosure = bridge.share_Func_void_std__string_std__string(callback)
+        return { (__topic: String, __message: String) -> Void in
+          __sharedClosure.pointee.call(std.string(__topic), std.string(__message))
+        }
+      }())
       return 
     } catch {
       let __message = "\(error.localizedDescription)"
@@ -143,10 +148,16 @@ public class HybridMQTTSpecCxx {
   }
   
   @inline(__always)
-  public func isConnected() -> Bool {
+  public func isConnected() -> bridge.std__shared_ptr_Promise_ConnectionState__ {
     do {
       let __result = try self.__implementation.isConnected()
-      return __result
+      return { () -> bridge.std__shared_ptr_Promise_ConnectionState__ in
+        let __promise = bridge.create_std__shared_ptr_Promise_ConnectionState__()
+        __result
+          .then({ __result in __promise.pointee.resolve(__result) })
+          .catch({ __error in __promise.pointee.reject(__error.toCpp()) })
+        return __promise
+      }()
     } catch {
       let __message = "\(error.localizedDescription)"
       fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")

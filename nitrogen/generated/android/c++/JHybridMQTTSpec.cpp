@@ -7,9 +7,16 @@
 
 #include "JHybridMQTTSpec.hpp"
 
+// Forward declaration of `ConnectionState` to properly resolve imports.
+namespace margelo::nitro::mqtt { enum class ConnectionState; }
 
-
+#include <NitroModules/Promise.hpp>
+#include "ConnectionState.hpp"
+#include <NitroModules/JPromise.hpp>
+#include "JConnectionState.hpp"
 #include <string>
+#include <functional>
+#include "JFunc_void_std__string_std__string.hpp"
 
 namespace margelo::nitro::mqtt {
 
@@ -44,14 +51,25 @@ namespace margelo::nitro::mqtt {
     static const auto method = _javaPart->getClass()->getMethod<void(jni::alias_ref<jni::JString> /* topic */)>("subscribe");
     method(_javaPart, jni::make_jstring(topic));
   }
-  void JHybridMQTTSpec::disconnect() {
-    static const auto method = _javaPart->getClass()->getMethod<void()>("disconnect");
-    method(_javaPart);
+  void JHybridMQTTSpec::setOnMessageReceived(const std::function<void(const std::string& /* topic */, const std::string& /* message */)>& callback) {
+    static const auto method = _javaPart->getClass()->getMethod<void(jni::alias_ref<JFunc_void_std__string_std__string::javaobject> /* callback */)>("setOnMessageReceived");
+    method(_javaPart, JFunc_void_std__string_std__string::fromCpp(callback));
   }
-  bool JHybridMQTTSpec::isConnected() {
-    static const auto method = _javaPart->getClass()->getMethod<jboolean()>("isConnected");
+  std::shared_ptr<Promise<ConnectionState>> JHybridMQTTSpec::isConnected() {
+    static const auto method = _javaPart->getClass()->getMethod<jni::local_ref<JPromise::javaobject>()>("isConnected");
     auto __result = method(_javaPart);
-    return static_cast<bool>(__result);
+    return [&]() {
+      auto __promise = Promise<ConnectionState>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
+        auto __result = jni::static_ref_cast<JConnectionState>(__boxedResult);
+        __promise->resolve(__result->toCpp());
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
   }
 
 } // namespace margelo::nitro::mqtt

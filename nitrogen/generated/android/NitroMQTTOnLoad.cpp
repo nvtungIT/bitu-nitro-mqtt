@@ -13,6 +13,7 @@
 
 #include "JHybridMathSpec.hpp"
 #include "JHybridMQTTSpec.hpp"
+#include "JFunc_void_std__string_std__string.hpp"
 #include <NitroModules/JNISharedPtr.hpp>
 #include <NitroModules/DefaultConstructableObject.hpp>
 
@@ -27,6 +28,7 @@ int initialize(JavaVM* vm) {
     // Register native JNI methods
     margelo::nitro::mqtt::JHybridMathSpec::registerNatives();
     margelo::nitro::mqtt::JHybridMQTTSpec::registerNatives();
+    margelo::nitro::mqtt::JFunc_void_std__string_std__string::registerNatives();
 
     // Register Nitro Hybrid Objects
     HybridObjectRegistry::registerHybridObjectConstructor(

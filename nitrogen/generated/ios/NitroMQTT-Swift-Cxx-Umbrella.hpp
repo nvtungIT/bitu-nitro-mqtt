@@ -8,14 +8,19 @@
 #pragma once
 
 // Forward declarations of C++ defined types
+// Forward declaration of `ConnectionState` to properly resolve imports.
+namespace margelo::nitro::mqtt { enum class ConnectionState; }
 // Forward declaration of `HybridMQTTSpec` to properly resolve imports.
 namespace margelo::nitro::mqtt { class HybridMQTTSpec; }
 // Forward declaration of `HybridMathSpec` to properly resolve imports.
 namespace margelo::nitro::mqtt { class HybridMathSpec; }
 
 // Include C++ defined types
+#include "ConnectionState.hpp"
 #include "HybridMQTTSpec.hpp"
 #include "HybridMathSpec.hpp"
+#include <NitroModules/Promise.hpp>
+#include <functional>
 #include <memory>
 #include <string>
 

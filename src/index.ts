@@ -1,4 +1,5 @@
 import { NitroModules, type HybridObject } from 'react-native-nitro-modules'
+import type { ConnectionState } from './MQTT.nitro'
 interface Math extends HybridObject {
   add(a: number, b: number): number
 }
@@ -6,8 +7,8 @@ interface MQTT extends HybridObject<{ ios: 'swift'; android: 'kotlin' }> {
   connect(clientID: string, host: string, port: number): void
   publish(topic: string, message: string): void
   subscribe(topic: string): void
-  disconnect(): void
-  isConnected(): boolean
+  setOnMessageReceived(callback: (topic: string, message: string) => void): void
+  isConnected(): Promise<ConnectionState>
 }
 // TODO: Export all HybridObjects here
 export const math = NitroModules.createHybridObject<Math>('Math')
