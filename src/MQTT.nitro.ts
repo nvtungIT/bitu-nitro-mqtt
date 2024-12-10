@@ -1,6 +1,5 @@
 import { type HybridObject } from 'react-native-nitro-modules'
 
-export type ConnectionState = 'connected' | 'disconnected' | 'connecting'
 export interface MQTT
   extends HybridObject<{ ios: 'swift'; android: 'kotlin' }> {
   /**
@@ -29,10 +28,4 @@ export interface MQTT
    * @param callback - A function invoked when a message is received.
    */
   setOnMessageReceived(callback: (topic: string, message: string) => void): void
-
-  /**
-   * Get the connection state of the client.
-   * @returns A promise that resolves to the connection state as a string.
-   */
-  isConnected(): Promise<ConnectionState>
 }

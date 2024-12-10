@@ -13,13 +13,10 @@
 #error NitroModules cannot be found! Are you sure you installed NitroModules properly?
 #endif
 
-// Forward declaration of `ConnectionState` to properly resolve imports.
-namespace margelo::nitro::mqtt { enum class ConnectionState; }
+
 
 #include <string>
 #include <functional>
-#include <NitroModules/Promise.hpp>
-#include "ConnectionState.hpp"
 
 namespace margelo::nitro::mqtt {
 
@@ -56,7 +53,6 @@ namespace margelo::nitro::mqtt {
       virtual void publish(const std::string& topic, const std::string& message) = 0;
       virtual void subscribe(const std::string& topic) = 0;
       virtual void setOnMessageReceived(const std::function<void(const std::string& /* topic */, const std::string& /* message */)>& callback) = 0;
-      virtual std::shared_ptr<Promise<ConnectionState>> isConnected() = 0;
 
     protected:
       // Hybrid Setup

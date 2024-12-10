@@ -63,10 +63,6 @@ abstract class HybridMQTTSpec: HybridObject() {
     val __result = setOnMessageReceived(callback.toLambda())
     return __result
   }
-  
-  @DoNotStrip
-  @Keep
-  abstract fun isConnected(): Promise<ConnectionState>
 
   private external fun initHybrid(): HybridData
 

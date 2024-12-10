@@ -18,7 +18,6 @@ namespace margelo::nitro::mqtt {
       prototype.registerHybridMethod("publish", &HybridMQTTSpec::publish);
       prototype.registerHybridMethod("subscribe", &HybridMQTTSpec::subscribe);
       prototype.registerHybridMethod("setOnMessageReceived", &HybridMQTTSpec::setOnMessageReceived);
-      prototype.registerHybridMethod("isConnected", &HybridMQTTSpec::isConnected);
     });
   }
 

@@ -8,8 +8,6 @@
 #pragma once
 
 // Forward declarations of C++ defined types
-// Forward declaration of `ConnectionState` to properly resolve imports.
-namespace margelo::nitro::mqtt { enum class ConnectionState; }
 // Forward declaration of `HybridMQTTSpec` to properly resolve imports.
 namespace margelo::nitro::mqtt { class HybridMQTTSpec; }
 // Forward declaration of `HybridMathSpec` to properly resolve imports.
@@ -22,11 +20,8 @@ namespace NitroMQTT { class HybridMQTTSpecCxx; }
 namespace NitroMQTT { class HybridMathSpecCxx; }
 
 // Include C++ defined types
-#include "ConnectionState.hpp"
 #include "HybridMQTTSpec.hpp"
 #include "HybridMathSpec.hpp"
-#include <NitroModules/Promise.hpp>
-#include <exception>
 #include <functional>
 #include <memory>
 #include <string>
@@ -71,71 +66,6 @@ namespace margelo::nitro::mqtt::bridge::swift {
   }
   inline std::shared_ptr<Func_void_std__string_std__string_Wrapper> share_Func_void_std__string_std__string(const Func_void_std__string_std__string& value) {
     return std::make_shared<Func_void_std__string_std__string_Wrapper>(value);
-  }
-  
-  // pragma MARK: std::shared_ptr<Promise<ConnectionState>>
-  /**
-   * Specialized version of `std::shared_ptr<Promise<ConnectionState>>`.
-   */
-  using std__shared_ptr_Promise_ConnectionState__ = std::shared_ptr<Promise<ConnectionState>>;
-  inline std::shared_ptr<Promise<ConnectionState>> create_std__shared_ptr_Promise_ConnectionState__() {
-    return Promise<ConnectionState>::create();
-  }
-  
-  // pragma MARK: std::function<void(ConnectionState /* result */)>
-  /**
-   * Specialized version of `std::function<void(ConnectionState)>`.
-   */
-  using Func_void_ConnectionState = std::function<void(ConnectionState /* result */)>;
-  /**
-   * Wrapper class for a `std::function<void(ConnectionState / * result * /)>`, this can be used from Swift.
-   */
-  class Func_void_ConnectionState_Wrapper final {
-  public:
-    explicit Func_void_ConnectionState_Wrapper(const std::function<void(ConnectionState /* result */)>& func): _function(func) {}
-    explicit Func_void_ConnectionState_Wrapper(std::function<void(ConnectionState /* result */)>&& func): _function(std::move(func)) {}
-    inline void call(int result) const {
-      _function(static_cast<ConnectionState>(result));
-    }
-  private:
-    std::function<void(ConnectionState /* result */)> _function;
-  };
-  inline Func_void_ConnectionState create_Func_void_ConnectionState(void* _Nonnull closureHolder, void(* _Nonnull call)(void* _Nonnull /* closureHolder */, int), void(* _Nonnull destroy)(void* _Nonnull)) {
-    std::shared_ptr<void> sharedClosureHolder(closureHolder, destroy);
-    return Func_void_ConnectionState([sharedClosureHolder, call](ConnectionState result) -> void {
-      call(sharedClosureHolder.get(), static_cast<int>(result));
-    });
-  }
-  inline std::shared_ptr<Func_void_ConnectionState_Wrapper> share_Func_void_ConnectionState(const Func_void_ConnectionState& value) {
-    return std::make_shared<Func_void_ConnectionState_Wrapper>(value);
-  }
-  
-  // pragma MARK: std::function<void(const std::exception_ptr& /* error */)>
-  /**
-   * Specialized version of `std::function<void(const std::exception_ptr&)>`.
-   */
-  using Func_void_std__exception_ptr = std::function<void(const std::exception_ptr& /* error */)>;
-  /**
-   * Wrapper class for a `std::function<void(const std::exception_ptr& / * error * /)>`, this can be used from Swift.
-   */
-  class Func_void_std__exception_ptr_Wrapper final {
-  public:
-    explicit Func_void_std__exception_ptr_Wrapper(const std::function<void(const std::exception_ptr& /* error */)>& func): _function(func) {}
-    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::move(func)) {}
-    inline void call(std::exception_ptr error) const {
-      _function(error);
-    }
-  private:
-    std::function<void(const std::exception_ptr& /* error */)> _function;
-  };
-  inline Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull closureHolder, void(* _Nonnull call)(void* _Nonnull /* closureHolder */, std::exception_ptr), void(* _Nonnull destroy)(void* _Nonnull)) {
-    std::shared_ptr<void> sharedClosureHolder(closureHolder, destroy);
-    return Func_void_std__exception_ptr([sharedClosureHolder, call](const std::exception_ptr& error) -> void {
-      call(sharedClosureHolder.get(), error);
-    });
-  }
-  inline std::shared_ptr<Func_void_std__exception_ptr_Wrapper> share_Func_void_std__exception_ptr(const Func_void_std__exception_ptr& value) {
-    return std::make_shared<Func_void_std__exception_ptr_Wrapper>(value);
   }
   
   // pragma MARK: std::shared_ptr<margelo::nitro::mqtt::HybridMQTTSpec>

@@ -45,10 +45,5 @@ class HybridMQTT: HybridMQTTSpec {
         }
     }
 
-
-    public func isConnected() throws -> CocoaMQTTConnState {
-        return CocoaMQTTConnState(rawValue: (mqttClient?.connState)!.rawValue) ?? <#default value#>
-    }
-
 }
 

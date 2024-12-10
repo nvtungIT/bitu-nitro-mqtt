@@ -36,5 +36,4 @@ public protocol HybridMQTTSpec: AnyObject, HybridObjectSpec {
   func publish(topic: String, message: String) throws -> Void
   func subscribe(topic: String) throws -> Void
   func setOnMessageReceived(callback: @escaping ((_ topic: String, _ message: String) -> Void)) throws -> Void
-  func isConnected() throws -> Promise<ConnectionState>
 }

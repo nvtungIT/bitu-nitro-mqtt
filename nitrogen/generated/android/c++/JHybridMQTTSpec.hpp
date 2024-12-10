@@ -55,7 +55,6 @@ namespace margelo::nitro::mqtt {
     void publish(const std::string& topic, const std::string& message) override;
     void subscribe(const std::string& topic) override;
     void setOnMessageReceived(const std::function<void(const std::string& /* topic */, const std::string& /* message */)>& callback) override;
-    std::shared_ptr<Promise<ConnectionState>> isConnected() override;
 
   private:
     friend HybridBase;
