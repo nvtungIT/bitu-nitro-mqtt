@@ -18,7 +18,8 @@ class HybridMQTT: HybridMQTTSpec {
         if mqttClient == nil {
             let mqtt = CocoaMQTT5(clientID: clientID, host: host, port: UInt16(port))
             self.mqttClient = mqtt
-           return  mqtt.connect()
+            var connectStatus =   mqtt.connect()
+                      return connectStatus
         }
     }
 
