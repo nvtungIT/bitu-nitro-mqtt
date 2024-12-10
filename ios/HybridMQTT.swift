@@ -14,7 +14,7 @@ class HybridMQTT: HybridMQTTSpec {
     private var onMessageReceived: ((String, String) -> Void)?
 
 
-    public func connect(clientID: String, host: String, port: Double) -> Bool throws {
+    public func connect(clientID: String, host: String, port: Double) throws  -> Bool {
         if mqttClient == nil {
             let mqtt = CocoaMQTT5(clientID: clientID, host: host, port: UInt16(port))
             self.mqttClient = mqtt
