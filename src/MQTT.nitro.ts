@@ -8,7 +8,7 @@ export interface MQTT
    * @param host - The broker host.
    * @param port - The broker port.
    */
-  connect(clientID: string, host: string, port: number): void
+  connect(clientID: string, host: string, port: number): boolean
 
   /**
    * Publish a message to a specific topic.

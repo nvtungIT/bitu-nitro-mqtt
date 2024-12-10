@@ -51,7 +51,7 @@ namespace margelo::nitro::mqtt {
 
   public:
     // Methods
-    void connect(const std::string& clientID, const std::string& host, double port) override;
+    bool connect(const std::string& clientID, const std::string& host, double port) override;
     void publish(const std::string& topic, const std::string& message) override;
     void subscribe(const std::string& topic) override;
     void setOnMessageReceived(const std::function<void(const std::string& /* topic */, const std::string& /* message */)>& callback) override;

@@ -99,10 +99,10 @@ public class HybridMQTTSpecCxx {
 
   // Methods
   @inline(__always)
-  public func connect(clientID: std.string, host: std.string, port: Double) -> Void {
+  public func connect(clientID: std.string, host: std.string, port: Double) -> Bool {
     do {
-      try self.__implementation.connect(clientID: String(clientID), host: String(host), port: port)
-      return 
+      let __result = try self.__implementation.connect(clientID: String(clientID), host: String(host), port: port)
+      return __result
     } catch {
       let __message = "\(error.localizedDescription)"
       fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")

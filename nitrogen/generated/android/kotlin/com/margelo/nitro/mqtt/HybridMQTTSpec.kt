@@ -43,7 +43,7 @@ abstract class HybridMQTTSpec: HybridObject() {
   // Methods
   @DoNotStrip
   @Keep
-  abstract fun connect(clientID: String, host: String, port: Double): Unit
+  abstract fun connect(clientID: String, host: String, port: Double): Boolean
   
   @DoNotStrip
   @Keep

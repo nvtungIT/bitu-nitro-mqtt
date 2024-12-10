@@ -49,7 +49,7 @@ namespace margelo::nitro::mqtt {
 
     public:
       // Methods
-      virtual void connect(const std::string& clientID, const std::string& host, double port) = 0;
+      virtual bool connect(const std::string& clientID, const std::string& host, double port) = 0;
       virtual void publish(const std::string& topic, const std::string& message) = 0;
       virtual void subscribe(const std::string& topic) = 0;
       virtual void setOnMessageReceived(const std::function<void(const std::string& /* topic */, const std::string& /* message */)>& callback) = 0;

@@ -32,7 +32,7 @@ public protocol HybridMQTTSpec: AnyObject, HybridObjectSpec {
   
 
   // Methods
-  func connect(clientID: String, host: String, port: Double) throws -> Void
+  func connect(clientID: String, host: String, port: Double) throws -> Bool
   func publish(topic: String, message: String) throws -> Void
   func subscribe(topic: String) throws -> Void
   func setOnMessageReceived(callback: @escaping ((_ topic: String, _ message: String) -> Void)) throws -> Void
