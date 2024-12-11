@@ -19,8 +19,9 @@ class HybridMQTT: HybridMQTTSpec {
             let mqtt = CocoaMQTT5(clientID: clientID, host: host, port: UInt16(port))
             self.mqttClient = mqtt
             var connectStatus =   mqtt.connect()
-                      return connectStatus
+            return connectStatus
         }
+        return mqttClient.connect() 
     }
 
     public func publish(topic: String, message: String) throws {
