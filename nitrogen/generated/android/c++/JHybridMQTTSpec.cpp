@@ -39,9 +39,10 @@ namespace margelo::nitro::mqtt {
     auto __result = method(_javaPart, jni::make_jstring(clientID), jni::make_jstring(host), port);
     return static_cast<bool>(__result);
   }
-  void JHybridMQTTSpec::publish(const std::string& topic, const std::string& message) {
-    static const auto method = _javaPart->getClass()->getMethod<void(jni::alias_ref<jni::JString> /* topic */, jni::alias_ref<jni::JString> /* message */)>("publish");
-    method(_javaPart, jni::make_jstring(topic), jni::make_jstring(message));
+  double JHybridMQTTSpec::publish(const std::string& topic, const std::string& message) {
+    static const auto method = _javaPart->getClass()->getMethod<double(jni::alias_ref<jni::JString> /* topic */, jni::alias_ref<jni::JString> /* message */)>("publish");
+    auto __result = method(_javaPart, jni::make_jstring(topic), jni::make_jstring(message));
+    return __result;
   }
   void JHybridMQTTSpec::subscribe(const std::string& topic) {
     static const auto method = _javaPart->getClass()->getMethod<void(jni::alias_ref<jni::JString> /* topic */)>("subscribe");

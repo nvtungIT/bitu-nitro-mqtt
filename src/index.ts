@@ -4,11 +4,11 @@ interface Math extends HybridObject {
 }
 interface MQTT extends HybridObject<{ ios: 'swift'; android: 'kotlin' }> {
   connect(clientID: string, host: string, port: number): boolean
-  publish(topic: string, message: string): void
+  publish(topic: string, message: string): number
   subscribe(topic: string): void
   setOnMessageReceived(callback: (topic: string, message: string) => void): void
 }
-
+export const HEYHEY = "12817238127371283"
 // TODO: Export all HybridObjects here
 export const math = NitroModules.createHybridObject<Math>('Math')
 export const mqtt = NitroModules.createHybridObject<MQTT>('MQTT')

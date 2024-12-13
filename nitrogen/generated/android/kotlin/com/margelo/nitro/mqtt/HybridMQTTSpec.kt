@@ -47,7 +47,7 @@ abstract class HybridMQTTSpec: HybridObject() {
   
   @DoNotStrip
   @Keep
-  abstract fun publish(topic: String, message: String): Unit
+  abstract fun publish(topic: String, message: String): Double
   
   @DoNotStrip
   @Keep

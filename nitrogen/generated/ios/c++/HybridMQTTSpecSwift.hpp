@@ -64,8 +64,9 @@ namespace margelo::nitro::mqtt {
       auto __result = _swiftPart.connect(clientID, host, std::forward<decltype(port)>(port));
       return __result;
     }
-    inline void publish(const std::string& topic, const std::string& message) override {
-      _swiftPart.publish(topic, message);
+    inline double publish(const std::string& topic, const std::string& message) override {
+      auto __result = _swiftPart.publish(topic, message);
+      return __result;
     }
     inline void subscribe(const std::string& topic) override {
       _swiftPart.subscribe(topic);

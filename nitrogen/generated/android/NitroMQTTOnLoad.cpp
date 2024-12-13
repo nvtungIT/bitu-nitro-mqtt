@@ -29,6 +29,12 @@ int initialize(JavaVM* vm) {
     margelo::nitro::mqtt::JHybridMathSpec::registerNatives();
     margelo::nitro::mqtt::JHybridMQTTSpec::registerNatives();
     margelo::nitro::mqtt::JFunc_void_std__string_std__string::registerNatives();
+    margelo::nitro::mqtt::JHybridMathSpec::registerNatives();
+    margelo::nitro::mqtt::JHybridMQTTSpec::registerNatives();
+    margelo::nitro::mqtt::JFunc_void_std__string_std__string::registerNatives();
+    margelo::nitro::mqtt::JHybridMathSpec::registerNatives();
+    margelo::nitro::mqtt::JHybridMQTTSpec::registerNatives();
+    margelo::nitro::mqtt::JFunc_void_std__string_std__string::registerNatives();
 
     // Register Nitro Hybrid Objects
     HybridObjectRegistry::registerHybridObjectConstructor(

@@ -15,7 +15,7 @@ export interface MQTT
    * @param topic - The topic to publish to.
    * @param message - The message content.
    */
-  publish(topic: string, message: string): void
+  publish(topic: string, message: string): number
 
   /**
    * Subscribe to a specific topic.

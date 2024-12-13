@@ -1,6 +1,6 @@
 {
-  "name": "react-native-nitro-template",
-  "version": "0.0.1",
+  "name": "@bitu/mqtt",
+  "version": "0.0.2",
   "description": "A template for Nitro Modules.",
   "main": "lib/index",
   "module": "lib/index",

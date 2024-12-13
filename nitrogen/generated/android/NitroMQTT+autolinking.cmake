@@ -29,7 +29,15 @@ target_sources(
   # Shared Nitrogen C++ sources
   ../nitrogen/generated/shared/c++/HybridMathSpec.cpp
   ../nitrogen/generated/shared/c++/HybridMQTTSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridMathSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridMQTTSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridMathSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridMQTTSpec.cpp
   # Android-specific Nitrogen C++ sources
+  ../nitrogen/generated/android/c++/JHybridMathSpec.cpp
+  ../nitrogen/generated/android/c++/JHybridMQTTSpec.cpp
+  ../nitrogen/generated/android/c++/JHybridMathSpec.cpp
+  ../nitrogen/generated/android/c++/JHybridMQTTSpec.cpp
   ../nitrogen/generated/android/c++/JHybridMathSpec.cpp
   ../nitrogen/generated/android/c++/JHybridMQTTSpec.cpp
 )
